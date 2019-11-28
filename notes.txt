@@ -1,0 +1,12 @@
+Text clustering:
+1. Text clustering is the application of cluster analysis to text-based documents. It uses machine learning and natural language processing (NLP) to understand and categorize unstructured, textual data.
+2. Typically, descriptors (sets of words that describe topic matter) are extracted from the document first. Then they are analyzed for the frequency in which they are found in the document compared to other terms. After which, clusters of descriptors can be identified and then auto-tagged.
+
+Uses of Text clustering:
+1. Automatic document organization: organisation of document groups into meaningful groups.
+2. 
+
+
+Problems with indic languages:
+1. English is known to be an Internet’s number one language.
+2. Accuracy has improved from 11% - 97.50% within the past decade.
