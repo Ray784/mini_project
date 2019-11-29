@@ -1,4 +1,4 @@
-Text clustering:
+﻿Text clustering:
 1. Text clustering is the application of cluster analysis to text-based documents. It uses machine learning and natural language processing (NLP) to understand and categorize unstructured, textual data.
 2. Typically, descriptors (sets of words that describe topic matter) are extracted from the document first. Then they are analyzed for the frequency in which they are found in the document compared to other terms. After which, clusters of descriptors can be identified and then auto-tagged.
 
@@ -10,3 +10,15 @@ Uses of Text clustering:
 Problems with indic languages:
 1. English is known to be an Internet’s number one language.
 2. Accuracy has improved from 11% - 97.50% within the past decade.
+
+Document representation:
+1. Document representation is concerned about how textual documents should be represented in various tasks, e.g. text processing, retrieval and knowledge discovery and mining. 
+2. Its prevailing approach is the vector space model, i.e. a document di is represented as a vector of term weights , where is the collection of terms that occur at least once in the document collection D.
+
+TF-IDF:
+1. TF: Term Frequency, which measures how frequently a term occurs in a document. Since every document is different in length, it is possible that a term would appear much more times in long documents than shorter ones. Thus, the term frequency is often divided by the document length (aka. the total number of terms in the document) as a way of normalization.
+2. IDF: Inverse Document Frequency, which measures how important a term is. While computing TF, all terms are considered equally important. However it is known that certain terms, such as "is", "of", and "that", may appear a lot of times but have little importance. Thus we need to weigh down the frequent terms while scale up the rare ones, by computing the following.
+
+Feature Extraction:
+1. Feature extraction is a process of dimensionality reduction by which an initial set of raw data is reduced to more manageable groups for processing. 
+2. A characteristic of these large data sets is a large number of variables that require a lot of computing resources to process

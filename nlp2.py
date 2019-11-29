@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from openpyxl import load_workbook
 from sklearn.decomposition import PCA,KernelPCA,FastICA,IncrementalPCA,LatentDirichletAllocation,SparsePCA,TruncatedSVD
-from sklearn import metrics
+from sklearn.metrics.cluster import contingency_matrix
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 scaler = StandardScaler(with_mean=True)
@@ -39,7 +39,7 @@ km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 print('data scaled and predicted dimnesions is :'+str(X.shape))
 y=km.fit_predict(X)
 print("tfidf"+str(X[0].shape))
-confusion=metrics.confusion_matrix(actuallabels,y)
+confusion=contingency_matrix(actuallabels,y)
 write2d(opt_file, "tfidf", confusion)
 print("tfidf-done")
 
@@ -50,7 +50,7 @@ for i in range(cnt-60,cnt+1,10):
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	y=km.fit_predict(pc)
 	print("PCA"+str(pca.n_components)+"-done")
-	confusion=metrics.confusion_matrix(actuallabels,y)
+	confusion = contingency_matrix(actuallabels,y)
 	write2d(opt_file, "PCA"+str(pca.n_components), confusion)
 	
 
@@ -61,7 +61,7 @@ for i in range(cnt-60,cnt+1,10):
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	y=km.fit_predict(kpcl)
 	print("KPCAlin"+str(kpcal.n_components)+"-done")
-	confusion=metrics.confusion_matrix(actuallabels,y)
+	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "KPCAlin"+str(kpcal.n_components), confusion)
 	
 
@@ -72,7 +72,7 @@ for i in range(cnt-60,cnt+1,10):
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	y=km.fit_predict(kpcp)
 	print("kpcapoly"+str(kpcap.n_components)+"-done")
-	confusion=metrics.confusion_matrix(actuallabels,y)
+	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "kpcapoly"+str(kpcap.n_components), confusion)
 
 
@@ -83,7 +83,7 @@ for i in range(cnt-60,cnt,10):
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	y=km.fit_predict(kpcc)
 	print("kpcacos"+str(kpcac.n_components)+"-done")
-	confusion=metrics.confusion_matrix(actuallabels,y)
+	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "kpcacos"+str(kpcac.n_components), confusion)
 
 
@@ -93,7 +93,7 @@ for i in range(cnt-60,cnt+1,10):
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	y=km.fit_predict(kpcs)
 	print("kpcasig"+str(kpcas.n_components)+"-done")
-	confusion=metrics.confusion_matrix(actuallabels,y)
+	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "kpca-sig"+str(kpcas.n_components), confusion)
 
 
@@ -103,7 +103,7 @@ for i in range(cnt-60,cnt+1,10):
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	y=km.fit_predict(fic)
 	print("FICA"+str(fica.n_components)+"-done")
-	confusion=metrics.confusion_matrix(actuallabels,y)
+	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "FICA"+str(fica.n_components), confusion)
 	
 
@@ -115,7 +115,7 @@ for i in range(cnt-60,cnt+1,10):
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	y=km.fit_predict(ipc)
 	print("IPCA"+str(ipca.n_components)+"-done")
-	confusion=metrics.confusion_matrix(actuallabels,y)
+	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "IPCA"+str(ipca.n_components), confusion)
 	
 
@@ -127,7 +127,7 @@ for i in range(cnt-60,cnt+1,10):
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	y=km.fit_predict(ldc)
 	print("LDA"+str(lda.n_components)+"-done")
-	confusion=metrics.confusion_matrix(actuallabels,y)
+	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "LDA"+str(lda.n_components), confusion)
 	
 
@@ -137,7 +137,7 @@ for i in range(cnt-60,cnt+1,10):
 	spc = spca.fit_transform(X)
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	print("SPCA"+str(spca.n_components)+"-done")
-	confusion=metrics.confusion_matrix(actuallabels,y)
+	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "SPCA"+str(spca.n_components), confusion)
 	
 
@@ -148,7 +148,7 @@ for i in range(cnt-60,cnt+1,10):
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	y=km.fit_predict(tsvc)
 	print("TSVD"+str(tsvd.n_components))
-	confusion=metrics.confusion_matrix(actuallabels,y)
+	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "TSVD"+str(tsvd.n_components), confusion)
 	
 
