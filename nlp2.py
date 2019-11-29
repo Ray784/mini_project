@@ -8,17 +8,19 @@ from sklearn.cluster import KMeans
 from openpyxl import load_workbook
 from sklearn.decomposition import PCA,KernelPCA,FastICA,IncrementalPCA,LatentDirichletAllocation,SparsePCA,TruncatedSVD
 from sklearn.metrics.cluster import contingency_matrix
+from sklearn.metrics import fowlkes_mallows_score
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 scaler = StandardScaler(with_mean=True)
 
-def write2d(file, header, arr):
+def write2d(file, header, arr, actuallabels, y):
 	file.write(header+"\n")
 	for i in arr:
 		for j in i:
 			file.write(str(j)+" ")
 		file.write("\n")
-	file.write("\n")
+	file.write("score: "+str(fowlkes_mallows_score(actuallabels,y)))
+	file.write("\n\n")
 
 files=list()
 cnt=0
@@ -40,7 +42,7 @@ print('data scaled and predicted dimnesions is :'+str(X.shape))
 y=km.fit_predict(X)
 print("tfidf"+str(X[0].shape))
 confusion=contingency_matrix(actuallabels,y)
-write2d(opt_file, "tfidf", confusion)
+write2d(opt_file, "tfidf", confusion, actuallabels, y)
 print("tfidf-done")
 
 
@@ -51,9 +53,8 @@ for i in range(cnt-60,cnt+1,10):
 	y=km.fit_predict(pc)
 	print("PCA"+str(pca.n_components)+"-done")
 	confusion = contingency_matrix(actuallabels,y)
-	write2d(opt_file, "PCA"+str(pca.n_components), confusion)
+	write2d(opt_file, "PCA"+str(pca.n_components), confusion, actuallabels, y)
 	
-
 
 for i in range(cnt-60,cnt+1,10):
 	kpcal = KernelPCA(n_components=i,kernel='linear')
@@ -62,7 +63,8 @@ for i in range(cnt-60,cnt+1,10):
 	y=km.fit_predict(kpcl)
 	print("KPCAlin"+str(kpcal.n_components)+"-done")
 	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "KPCAlin"+str(kpcal.n_components), confusion)
+	write2d(opt_file, "KPCAlin"+str(kpcal.n_components), confusion, actuallabels, y)
+
 	
 
 
@@ -73,7 +75,8 @@ for i in range(cnt-60,cnt+1,10):
 	y=km.fit_predict(kpcp)
 	print("kpcapoly"+str(kpcap.n_components)+"-done")
 	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "kpcapoly"+str(kpcap.n_components), confusion)
+	write2d(opt_file, "kpcapoly"+str(kpcap.n_components), confusion, actuallabels, y)
+
 
 
 
@@ -84,7 +87,8 @@ for i in range(cnt-60,cnt,10):
 	y=km.fit_predict(kpcc)
 	print("kpcacos"+str(kpcac.n_components)+"-done")
 	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "kpcacos"+str(kpcac.n_components), confusion)
+	write2d(opt_file, "kpcacos"+str(kpcac.n_components), confusion, actuallabels, y)
+
 
 
 for i in range(cnt-60,cnt+1,10):
@@ -94,10 +98,11 @@ for i in range(cnt-60,cnt+1,10):
 	y=km.fit_predict(kpcs)
 	print("kpcasig"+str(kpcas.n_components)+"-done")
 	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "kpca-sig"+str(kpcas.n_components), confusion)
+	write2d(opt_file, "kpca-sig"+str(kpcas.n_components), confusion, actuallabels, y)
 
 
-for i in range(cnt-60,cnt+1,10):
+
+"""for i in range(cnt-60,cnt+1,10):
 	fica = FastICA(n_components=i,algorithm='deflation')
 	fic = fica.fit_transform(X)
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
@@ -105,11 +110,13 @@ for i in range(cnt-60,cnt+1,10):
 	print("FICA"+str(fica.n_components)+"-done")
 	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "FICA"+str(fica.n_components), confusion)
+	print("score: "+str(fowlkes_mallows_score(actuallabels,y)))"""
+
 	
 
 
 
-for i in range(cnt-60,cnt+1,10):
+"""for i in range(cnt-60,cnt+1,10):
 	ipca = IncrementalPCA(n_components=i)
 	ipc = ipca.fit_transform(X)
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
@@ -117,6 +124,8 @@ for i in range(cnt-60,cnt+1,10):
 	print("IPCA"+str(ipca.n_components)+"-done")
 	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "IPCA"+str(ipca.n_components), confusion)
+	print("score: "+str(fowlkes_mallows_score(actuallabels,y)))"""
+
 	
 
 
@@ -128,17 +137,20 @@ for i in range(cnt-60,cnt+1,10):
 	y=km.fit_predict(ldc)
 	print("LDA"+str(lda.n_components)+"-done")
 	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "LDA"+str(lda.n_components), confusion)
+	write2d(opt_file, "LDA"+str(lda.n_components), confusion, actuallabels, y)
+
 	
 
 
-for i in range(cnt-60,cnt+1,10):
+"""for i in range(cnt-60,cnt+1,10):
 	spca = SparsePCA(n_components=i,method='lars')
 	spc = spca.fit_transform(X)
 	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
 	print("SPCA"+str(spca.n_components)+"-done")
 	confusion=contingency_matrix(actuallabels,y)
 	write2d(opt_file, "SPCA"+str(spca.n_components), confusion)
+	print("score: "+str(fowlkes_mallows_score(actuallabels,y)))"""
+
 	
 
 
@@ -149,7 +161,8 @@ for i in range(cnt-60,cnt+1,10):
 	y=km.fit_predict(tsvc)
 	print("TSVD"+str(tsvd.n_components))
 	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "TSVD"+str(tsvd.n_components), confusion)
+	write2d(opt_file, "TSVD"+str(tsvd.n_components), confusion, actuallabels, y)
+
 	
 
 
