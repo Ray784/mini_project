@@ -8,7 +8,7 @@ from sklearn.cluster import KMeans
 from openpyxl import load_workbook
 from sklearn.decomposition import PCA,KernelPCA,FastICA,IncrementalPCA,LatentDirichletAllocation,SparsePCA,TruncatedSVD
 from sklearn.metrics.cluster import contingency_matrix
-from sklearn.metrics import fowlkes_mallows_score
+from sklearn import metrics
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 scaler = StandardScaler(with_mean=True)
@@ -19,8 +19,11 @@ def write2d(file, header, arr, actuallabels, y):
 		for j in i:
 			file.write(str(j)+" ")
 		file.write("\n")
-	file.write("score: "+str(fowlkes_mallows_score(actuallabels,y)))
-	file.write("\n\n")
+	file.write("adjusted rank index: "+str(metrics.adjusted_rand_score(actuallabels,y))+"\n")
+	file.write("completeness: "+str(metrics.completeness_score(actuallabels,y))+"\n")
+	file.write("v-measure: "+str(metrics.v_measure_score(actuallabels,y))+"\n")
+	file.write("homogeneity: "+str(metrics.homogeneity_score(actuallabels,y))+"\n")
+	file.write("\n")
 
 files=list()
 cnt=0
