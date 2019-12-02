@@ -22,3 +22,14 @@ TF-IDF:
 Feature Extraction:
 1. Feature extraction is a process of dimensionality reduction by which an initial set of raw data is reduced to more manageable groups for processing. 
 2. A characteristic of these large data sets is a large number of variables that require a lot of computing resources to process
+
+PCA:
+1. PCA is a statistical procedure that uses orthogonal transformation to convert a set of observations of co-related variables into a set of values of linearly uncorrelated variables called principal components.
+
+K-PCA:
+1.PCA is a linear method. That is it can only be applied to datasets which are linearly separable. It does an excellent job for datasets, which are linearly separable. But, if we use it to non-linear datasets, we might get a result which may not be the optimal dimensionality reduction. Kernel PCA uses a kernel function to project dataset into a higher dimensional feature space, where it is linearly separable. It is similar to the idea of Support Vector Machines.
+2.To understand the utility of kernel PCA, particularly for clustering, observe that, while N points cannot in general be linearly separated in {\displaystyle d<N}{\displaystyle d<N} dimensions, they can almost always be linearly separated in {\displaystyle d\geq N}{\displaystyle d\geq N} dimensions. That is, given N points, {\displaystyle \mathbf {x} _{i}}\mathbf {x} _{i}, if we map them to an N-dimensional space with
+
+{\displaystyle \Phi (\mathbf {x} _{i})}\Phi ({\mathbf  {x}}_{i}) where {\displaystyle \Phi :\mathbb {R} ^{d}\to \mathbb {R} ^{N}}\Phi :{\mathbb  {R}}^{d}\to {\mathbb  {R}}^{N},
+
+
