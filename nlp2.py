@@ -1,15 +1,16 @@
 import numpy as np
-from sklearn.cluster import KMeans
-import numpy as np
 import os,io,math
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA,KernelPCA,LatentDirichletAllocation,TruncatedSVD
+from matplotlib import pyplot as plt
+from sklearn.decomposition import PCA,KernelPCA,TruncatedSVD
 from sklearn.metrics.cluster import contingency_matrix
 from sklearn import metrics
+import time
+import pandas as pd
+from pandas.plotting import scatter_matrix
 
-scaler = StandardScaler(with_mean=True)
 
 def write2d(file, header, arr, actuallabels, y):
 	file.write(header+"\n")
@@ -23,91 +24,65 @@ def write2d(file, header, arr, actuallabels, y):
 	file.write("homogeneity: "+str(metrics.homogeneity_score(actuallabels,y))+"\n")
 	file.write("\n")
 
+time_file = io.open("time_opt.txt", "w")
+def doClusters(num_clusters, reducer, X, opt_file, i):
+	start = time.time()
+	if(reducer == 'pca'):
+		pca = PCA(n_components=i)
+		X = pca.fit_transform(X)
+	elif(reducer == 'kpca,lin'):
+		kpcal = KernelPCA(n_components=i,kernel='linear')
+		X = kpcal.fit_transform(X)
+	elif(reducer == 'kpca,poly'):
+		kpcap = KernelPCA(n_components=i,kernel='poly')
+		X = kpcap.fit_transform(X)
+	elif(reducer == 'kpca,cos'):
+		kpcac = KernelPCA(n_components=i,kernel='cosine')
+		X = kpcac.fit_transform(X)
+	elif(reducer == 'kpca,sig'):
+		kpcas = KernelPCA(n_components=i,kernel='sigmoid')
+		X = kpcas.fit_transform(X)
+	elif(reducer == 'svd'):
+		tsvd = TruncatedSVD(n_components=i)
+		tsvc = tsvd.fit_transform(X)
+	elif(reducer == 'none' and i != 141):
+		return;
+	rt = time.time()-start
+	start = time.time()
+	km = KMeans(n_clusters=num_clusters, init='k-means++', n_init=20, random_state= 0)
+	y=km.fit_predict(X)
+	ct = time.time()-start
+	time_file.write("reducer: "+reducer+": "+str(i)+" dims - reduce time:"+str(rt)+
+		", cluster time:"+str(ct)+", total time: "+str(rt+ct)+"\n");
+	print("reducer: "+reducer+": "+str(i)+" dims - done")
+	confusion=contingency_matrix(actuallabels,y)
+	write2d(opt_file, reducer+"--"+str(i), confusion, actuallabels, y)
+
+file_name = 'ds141-3'
+num_clusters = 3
+opt_file = io.open("output.txt", 'w')
+reducers = ['none', 'pca', 'kpca,lin', 'kpca,poly', 'kpca,cos', 'kpca,sig', 'svd']
+actuallabels=[0]*47 + [1]*47 + [2]*47
+
+
 files=list()
 cnt=0
-dir=os.path.join(os.getcwd(),'combined')
+dir=os.path.join(os.getcwd(),file_name)
 for f in os.listdir(dir):
 	if f.endswith(".txt"):
 		cnt+=1
 		files.append(os.path.join(dir,f))
 file_iter = iter(files)
 
-opt_file = io.open("output.txt", 'w')
-
-vectorizer = TfidfVectorizer(analyzer='word',input='filename',token_pattern='[^\n\,\.\s\!\'\?\"\:\;\`\~\)\(\-0123456789][^\n\?\,\.\s\!\'\"\;\:\`\~\)\(\-0123456789]+')
-X=vectorizer.fit_transform(file_iter,'ds141')        
+vectorizer = TfidfVectorizer(analyzer='word',input='filename',
+	token_pattern='[^\n\,\.\s\!\'\?\"\:\;\`\~\)\(\-0123456789][^\n\?\,\.\s\!\'\"\;\:\`\~\)\(\-0123456789]+')
+X=vectorizer.fit_transform(file_iter,file_name)  
 X=X.toarray()
-actuallabels=[0]*21 + [1]*9 + [2]*30 + [3]*49 + [4]*17
-km = KMeans(n_clusters=3, init='k-means++',n_init=20)
-print('data scaled and predicted dimnesions is :'+str(X.shape))
-y=km.fit_predict(X)
-print("tfidf"+str(X[0].shape))
-confusion=contingency_matrix(actuallabels,y)
-write2d(opt_file, "tfidf", confusion, actuallabels, y)
-print("tfidf-done")
 
-
-for i in range(cnt-60,cnt+1,10):
-	pca = PCA(n_components=i)
-	pc = pca.fit_transform(X)
-	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
-	y=km.fit_predict(pc)
-	print("PCA"+str(pca.n_components)+"-done")
-	confusion = contingency_matrix(actuallabels,y)
-	write2d(opt_file, "PCA"+str(pca.n_components), confusion, actuallabels, y)
-	
-
-for i in range(cnt-60,cnt,10):
-	kpcal = KernelPCA(n_components=i,kernel='linear')
-	kpcl = kpcal.fit_transform(X)
-	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
-	y=km.fit_predict(kpcl)
-	print("KPCAlin"+str(kpcal.n_components)+"-done")
-	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "KPCAlin"+str(kpcal.n_components), confusion, actuallabels, y)
-
-for i in range(cnt-60,cnt,10):
-	kpcap = KernelPCA(n_components=i,kernel='poly')
-	kpcp = kpcap.fit_transform(X)
-	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
-	y=km.fit_predict(kpcp)
-	print("kpcapoly"+str(kpcap.n_components)+"-done")
-	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "kpcapoly"+str(kpcap.n_components), confusion, actuallabels, y)
-
-for i in range(cnt-60,cnt,10):
-	kpcac = KernelPCA(n_components=i,kernel='cosine')
-	kpcc = kpcac.fit_transform(X)
-	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
-	y=km.fit_predict(kpcc)
-	print("kpcacos"+str(kpcac.n_components)+"-done")
-	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "kpcacos"+str(kpcac.n_components), confusion, actuallabels, y)
-
-for i in range(cnt-60,cnt,10):
-	kpcas = KernelPCA(n_components=i,kernel='sigmoid')
-	kpcs = kpcas.fit_transform(X)
-	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
-	y=km.fit_predict(kpcs)
-	print("kpcasig"+str(kpcas.n_components)+"-done")
-	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "kpca-sig"+str(kpcas.n_components), confusion, actuallabels, y)
-
-for i in range(cnt-60,cnt+1,10):
-	lda = LatentDirichletAllocation(n_components=i,learning_method='batch')
-	ldc = lda.fit_transform(X)
-	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
-	y=km.fit_predict(ldc)
-	print("LDA"+str(lda.n_components)+"-done")
-	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "LDA"+str(lda.n_components), confusion, actuallabels, y)
-
-
-for i in range(cnt-60,cnt+1,10):
-	tsvd = TruncatedSVD(n_components=i)
-	tsvc = tsvd.fit_transform(X)
-	km = KMeans(n_clusters=3, init='k-means++',n_init=20)
-	y=km.fit_predict(tsvc)
-	print("TSVD"+str(tsvd.n_components))
-	confusion=contingency_matrix(actuallabels,y)
-	write2d(opt_file, "TSVD"+str(tsvd.n_components), confusion, actuallabels, y)
+for reducer in reducers:
+	for i in range(cnt-60,cnt+1,5):
+		try:
+			x = X
+			doClusters(num_clusters, reducer, x, opt_file, i)
+		except:
+			print("error in: "+reducer+"--"+str(i))
