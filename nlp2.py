@@ -51,6 +51,11 @@ def doClusters(num_clusters, reducer, X, opt_file, i):
 	start = time.time()
 	km = KMeans(n_clusters=num_clusters, init='k-means++', n_init=20, random_state= 0)
 	y=km.fit_predict(X)
+	if(i==141):
+		data = pd.DataFrame(X[:,:10], columns=['x1', 'x2', 'x3',
+		            'x4','x5','x6','x7','x8','x9','x10'])
+		k = scatter_matrix(data, alpha=0.2, figsize=(6, 6), diagonal='hist')
+		plt.show()
 	ct = time.time()-start
 	time_file.write("reducer: "+reducer+": "+str(i)+" dims - reduce time:"+str(rt)+
 		", cluster time:"+str(ct)+", total time: "+str(rt+ct)+"\n");
