@@ -89,7 +89,7 @@ def doClusters(num_clusters, reducer, X, opt_file, i):
 
 
 
-file_name = 'ds-t4-141-3'
+folder_name = 'ds-t4-141-3'
 num_clusters = 3
 opt_file = io.open("output.txt", 'w')
 time_file = io.open("time_opt.txt", "w")
@@ -104,7 +104,7 @@ time_file.write("reducer--num_comps\nreduce time\ncluster time\ntotal time\n")
 
 files=list()
 cnt=0
-dir=os.path.join(os.getcwd(),file_name)
+dir=os.path.join(os.getcwd(),folder_name)
 for f in os.listdir(dir):
 	if f.endswith(".txt"):
 		cnt+=1

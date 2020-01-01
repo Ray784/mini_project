@@ -4,7 +4,15 @@ import string as String
 no_max = 0
 no_mid = 0
 no_sml = 0
-files=os.listdir()
+
+
+folder_name = "ds-t4-141-3"
+syllable_count = 3
+
+dir=os.path.join(os.getcwd(),folder_name)
+files=os.listdir(dir)
+
+
 for file in files:
     file1 = open(file,"r",encoding="utf-8")
     if not '.txt' in file:
@@ -74,7 +82,7 @@ for file in files:
                     for i in reversed(list1):
                             file2.write( i )
                             count+=1
-                            if(count==3):
+                            if(count==syllable_count):
                                 break
                     # log.write('\n')
                     # file2.write('---%d' % cn)
