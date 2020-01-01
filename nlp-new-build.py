@@ -12,7 +12,7 @@ import pandas as pd
 from pandas.plotting import scatter_matrix
 
 
-table = io.open("table.txt", "w")
+
 
 def write2d(file, header, arr, actuallabels, y, db):
 	file.write(header+"\n")
@@ -29,7 +29,7 @@ def write2d(file, header, arr, actuallabels, y, db):
 	file.write("\n")
 
 	table.write(str(round(metrics.adjusted_rand_score(actuallabels,y), 4))+", "+str(round(metrics.completeness_score(actuallabels,y), 4))+", "
-		+str(round(metrics.v_measure_score(actuallabels,y), 4))+", "+str(round(metrics.homogeneity_score(actuallabels,y), 4))+" ], \n")
+		+str(round(metrics.v_measure_score(actuallabels,y), 4))+", "+str(round(metrics.homogeneity_score(actuallabels,y), 4))+"\n")
 
 
 def findAccuracy(confusion):
@@ -47,7 +47,7 @@ def diag(matrix):
 		diag2 += matrix[i][len(matrix)-1-i]
 	return max(diag1, diag2)
 
-time_file = io.open("time_opt.txt", "w")
+
 def doClusters(num_clusters, reducer, X, opt_file, i):
 	start = time.time()
 	if(reducer == 'pca'):
@@ -77,21 +77,29 @@ def doClusters(num_clusters, reducer, X, opt_file, i):
 		reducer = 'tfidf'
 		i = 18872
 
-	time_file.write("reducer: "+reducer+": "+str(i)+" dims - reduce time:"+str(rt)+
-		", cluster time:"+str(ct)+", total time: "+str(rt+ct)+"\n");
+	time_file.write("\n"+reducer+"--"+str(i)+"\n"+str(rt)+"\n"+str(ct)+"\n"+str(rt+ct)+"\n")
 	print("reducer: "+reducer+": "+str(i)+" dims - done")
 	confusion=contingency_matrix(actuallabels,y)
 	
 	dr = (i/141)*100
 	db = round(metrics.davies_bouldin_score(X,y),4)
-	table.write("[ "+str(i)+", "+str(round(100-dr,4))+", "+str(db)+", ")
+	table.write(str(i)+", "+str(round(100-dr,4))+", "+str(db)+", ")
 	write2d(opt_file, reducer+"--"+str(i), confusion, actuallabels, y, db)
 
-file_name = 'ds141-3'
+
+
+
+file_name = 'ds-t4-141-3'
 num_clusters = 3
 opt_file = io.open("output.txt", 'w')
+time_file = io.open("time_opt.txt", "w")
+table = io.open("table.txt", "w")
+#cluster_file = io.open("clusters.txt", "w")
 reducers = ['none', 'pca', 'kpca,lin', 'kpca,poly', 'kpca,cos', 'kpca,sig']
 actuallabels=[0]*47 + [1]*47 + [2]*47
+time_file.write("reducer--num_comps\nreduce time\ncluster time\ntotal time\n")
+
+
 
 
 files=list()
@@ -109,12 +117,13 @@ X=vectorizer.fit_transform(file_iter,file_name)
 X=X.toarray()
 
 for reducer in reducers:
-	table.write("\n"+reducer+"\n[ ");
+	table.write("\n"+reducer+"\n");
+	table.write("num_comps,dr%,DBI,ARI,completeness,v_measure,homogeneity\n")
 	for i in range(cnt,cnt-59,-5):
 		try:
 			x = X
 			doClusters(num_clusters, reducer, x, opt_file, i)
 		except Exception as e:
 			print(e)
-	table.write(" ]");
+	table.write("\n");
 

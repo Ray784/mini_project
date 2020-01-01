@@ -1,0 +1,671 @@
+tfidf--18872
+1 13 33 
+3 31 13 
+34 4 9 
+accuracy rate: 69.50354609929079
+adjusted rank index: 0.30386765559665224
+completeness: 0.3097612042650713
+v-measure: 0.3081749282582296
+homogeneity: 0.3066048160023692
+davies_bouldin_score: 6.812
+
+pca--141
+0 31 16 
+1 14 32 
+32 2 13 
+accuracy rate: 67.37588652482269
+adjusted rank index: 0.2790732233658325
+completeness: 0.34578115689925853
+v-measure: 0.34098985406469845
+homogeneity: 0.3363295174952574
+davies_bouldin_score: 6.8477
+
+pca--136
+31 15 1 
+14 33 0 
+22 1 24 
+accuracy rate: 62.4113475177305
+adjusted rank index: 0.21501879568174762
+completeness: 0.3154191603642369
+v-measure: 0.3048825139411556
+homogeneity: 0.2950270697886475
+davies_bouldin_score: 6.7346
+
+pca--131
+25 13 9 
+9 30 8 
+44 2 1 
+accuracy rate: 58.86524822695035
+adjusted rank index: 0.21341810764622654
+completeness: 0.23534135046744817
+v-measure: 0.21885778121325897
+homogeneity: 0.20453212433452483
+davies_bouldin_score: 6.4683
+
+pca--126
+30 17 0 
+13 34 0 
+2 30 15 
+accuracy rate: 56.02836879432624
+adjusted rank index: 0.1381362331974022
+completeness: 0.26571506749005497
+v-measure: 0.24239093293822805
+homogeneity: 0.22283109920614183
+davies_bouldin_score: 6.262
+
+pca--121
+0 35 12 
+1 15 31 
+14 30 3 
+accuracy rate: 56.73758865248227
+adjusted rank index: 0.1471790678659035
+completeness: 0.23922576859120015
+v-measure: 0.21874709877718976
+homogeneity: 0.20149806893334357
+davies_bouldin_score: 6.3461
+
+pca--116
+16 30 1 
+33 12 2 
+12 13 22 
+accuracy rate: 60.28368794326241
+adjusted rank index: 0.1504605284125315
+completeness: 0.18762734939942938
+v-measure: 0.18216276704839418
+homogeneity: 0.1770074846251243
+davies_bouldin_score: 6.5399
+
+pca--111
+22 2 23 
+35 7 5 
+45 0 2 
+accuracy rate: 53.191489361702125
+adjusted rank index: 0.09854726500118803
+completeness: 0.20767833237451852
+v-measure: 0.16705386182169318
+homogeneity: 0.139722415658772
+davies_bouldin_score: 5.4791
+
+pca--106
+8 1 38 
+6 4 37 
+0 0 47 
+accuracy rate: 41.843971631205676
+adjusted rank index: 0.013989935510529327
+completeness: 0.14305188344151673
+v-measure: 0.08610498726144553
+homogeneity: 0.06158777880926646
+davies_bouldin_score: 3.5041
+
+pca--101
+4 43 0 
+1 46 0 
+0 37 10 
+accuracy rate: 42.5531914893617
+adjusted rank index: 0.0165816020894736
+completeness: 0.2526377953265872
+v-measure: 0.13648906155663407
+homogeneity: 0.09350204760010677
+davies_bouldin_score: 3.3784
+
+pca--96
+11 13 23 
+2 32 13 
+1 11 35 
+accuracy rate: 55.319148936170215
+adjusted rank index: 0.11112543509088561
+completeness: 0.13689031420758532
+v-measure: 0.12635169768558052
+homogeneity: 0.11731973847497658
+davies_bouldin_score: 6.1204
+
+pca--91
+8 3 36 
+10 14 23 
+0 0 47 
+accuracy rate: 48.93617021276596
+adjusted rank index: 0.0790626547593781
+completeness: 0.21666312761940854
+v-measure: 0.17332015613112697
+homogeneity: 0.14442771625638187
+davies_bouldin_score: 4.5081
+
+pca--86
+4 29 14 
+2 13 32 
+31 3 13 
+accuracy rate: 65.24822695035462
+adjusted rank index: 0.2354573156865421
+completeness: 0.25146562272328243
+v-measure: 0.24933105962880575
+homogeneity: 0.24723242994336506
+davies_bouldin_score: 5.878
+
+kpca,lin--141
+0 31 16 
+1 14 32 
+30 2 15 
+accuracy rate: 65.95744680851064
+adjusted rank index: 0.25359984050728973
+completeness: 0.3293310832572153
+v-measure: 0.3233157819327148
+homogeneity: 0.3175162804598792
+davies_bouldin_score: 6.8199
+
+kpca,lin--136
+31 15 1 
+14 33 0 
+22 1 24 
+accuracy rate: 62.4113475177305
+adjusted rank index: 0.21501879568174762
+completeness: 0.3154191603642369
+v-measure: 0.3048825139411556
+homogeneity: 0.2950270697886475
+davies_bouldin_score: 6.7346
+
+kpca,lin--131
+25 13 9 
+9 30 8 
+44 2 1 
+accuracy rate: 58.86524822695035
+adjusted rank index: 0.21341810764622654
+completeness: 0.23534135046744817
+v-measure: 0.21885778121325897
+homogeneity: 0.20453212433452483
+davies_bouldin_score: 6.4683
+
+kpca,lin--126
+30 17 0 
+13 34 0 
+2 30 15 
+accuracy rate: 56.02836879432624
+adjusted rank index: 0.1381362331974022
+completeness: 0.26571506749005497
+v-measure: 0.24239093293822805
+homogeneity: 0.22283109920614183
+davies_bouldin_score: 6.262
+
+kpca,lin--121
+0 35 12 
+1 15 31 
+14 30 3 
+accuracy rate: 56.73758865248227
+adjusted rank index: 0.1471790678659035
+completeness: 0.23922576859120015
+v-measure: 0.21874709877718976
+homogeneity: 0.20149806893334357
+davies_bouldin_score: 6.3461
+
+kpca,lin--116
+16 30 1 
+33 12 2 
+12 13 22 
+accuracy rate: 60.28368794326241
+adjusted rank index: 0.1504605284125315
+completeness: 0.18762734939942938
+v-measure: 0.18216276704839418
+homogeneity: 0.1770074846251243
+davies_bouldin_score: 6.5399
+
+kpca,lin--111
+9 5 33 
+7 8 32 
+0 0 47 
+accuracy rate: 45.39007092198582
+adjusted rank index: 0.03401006966866689
+completeness: 0.153399888110637
+v-measure: 0.1140035920835875
+homogeneity: 0.09070790663234168
+davies_bouldin_score: 4.6834
+
+kpca,lin--106
+18 25 4 
+7 34 6 
+4 43 0 
+accuracy rate: 47.5177304964539
+adjusted rank index: 0.04816050550824716
+completeness: 0.11455484305009073
+v-measure: 0.09274301669025563
+homogeneity: 0.07790878641324997
+davies_bouldin_score: 5.4615
+
+kpca,lin--101
+13 30 4 
+3 38 6 
+1 46 0 
+accuracy rate: 46.09929078014184
+adjusted rank index: 0.03598505459426119
+completeness: 0.1512247886701274
+v-measure: 0.10850070723086262
+homogeneity: 0.08459959840081578
+davies_bouldin_score: 4.2727
+
+kpca,lin--96
+0 45 2 
+0 42 5 
+5 42 0 
+accuracy rate: 39.00709219858156
+adjusted rank index: 0.0033294356864789054
+completeness: 0.1842764985481955
+v-measure: 0.08882824392249512
+homogeneity: 0.05851808814376314
+davies_bouldin_score: 2.4109
+
+kpca,lin--91
+13 32 2 
+28 16 3 
+4 20 23 
+accuracy rate: 58.86524822695035
+adjusted rank index: 0.14557062642680454
+completeness: 0.18834993139759396
+v-measure: 0.1829354042044461
+homogeneity: 0.1778234826071703
+davies_bouldin_score: 5.9653
+
+kpca,lin--86
+6 8 33 
+1 23 23 
+0 0 47 
+accuracy rate: 53.90070921985816
+adjusted rank index: 0.1045275342292993
+completeness: 0.253309421068962
+v-measure: 0.1991383426877418
+homogeneity: 0.16405469091231684
+davies_bouldin_score: 4.6096
+
+kpca,poly--141
+20 0 27 
+34 1 12 
+8 39 0 
+accuracy rate: 70.92198581560284
+adjusted rank index: 0.3697919701649088
+completeness: 0.44051427970307117
+v-measure: 0.4355599061490384
+homogeneity: 0.4307157348152222
+davies_bouldin_score: 7.0191
+
+kpca,poly--136
+31 15 1 
+14 33 0 
+22 1 24 
+accuracy rate: 62.4113475177305
+adjusted rank index: 0.21501879568174762
+completeness: 0.3154191603642369
+v-measure: 0.3048825139411556
+homogeneity: 0.2950270697886475
+davies_bouldin_score: 6.7346
+
+kpca,poly--131
+25 13 9 
+9 30 8 
+44 2 1 
+accuracy rate: 58.86524822695035
+adjusted rank index: 0.21341810764622654
+completeness: 0.23534135046744817
+v-measure: 0.21885778121325897
+homogeneity: 0.20453212433452483
+davies_bouldin_score: 6.4684
+
+kpca,poly--126
+30 17 0 
+13 34 0 
+2 30 15 
+accuracy rate: 56.02836879432624
+adjusted rank index: 0.1381362331974022
+completeness: 0.26571506749005497
+v-measure: 0.24239093293822805
+homogeneity: 0.22283109920614183
+davies_bouldin_score: 6.2621
+
+kpca,poly--121
+0 35 12 
+1 15 31 
+14 30 3 
+accuracy rate: 56.73758865248227
+adjusted rank index: 0.1471790678659035
+completeness: 0.23922576859120015
+v-measure: 0.21874709877718976
+homogeneity: 0.20149806893334357
+davies_bouldin_score: 6.3462
+
+kpca,poly--116
+16 30 1 
+33 12 2 
+12 13 22 
+accuracy rate: 60.28368794326241
+adjusted rank index: 0.1504605284125315
+completeness: 0.18762734939942938
+v-measure: 0.18216276704839418
+homogeneity: 0.1770074846251243
+davies_bouldin_score: 6.54
+
+kpca,poly--111
+9 5 33 
+7 8 32 
+0 0 47 
+accuracy rate: 45.39007092198582
+adjusted rank index: 0.03401006966866689
+completeness: 0.153399888110637
+v-measure: 0.1140035920835875
+homogeneity: 0.09070790663234168
+davies_bouldin_score: 4.6834
+
+kpca,poly--106
+18 25 4 
+7 34 6 
+4 43 0 
+accuracy rate: 47.5177304964539
+adjusted rank index: 0.04816050550824716
+completeness: 0.11455484305009073
+v-measure: 0.09274301669025563
+homogeneity: 0.07790878641324997
+davies_bouldin_score: 5.4615
+
+kpca,poly--101
+13 30 4 
+3 38 6 
+1 46 0 
+accuracy rate: 46.09929078014184
+adjusted rank index: 0.03598505459426119
+completeness: 0.1512247886701274
+v-measure: 0.10850070723086262
+homogeneity: 0.08459959840081578
+davies_bouldin_score: 4.2728
+
+kpca,poly--96
+0 45 2 
+0 42 5 
+5 42 0 
+accuracy rate: 39.00709219858156
+adjusted rank index: 0.0033294356864789054
+completeness: 0.1842764985481955
+v-measure: 0.08882824392249512
+homogeneity: 0.05851808814376314
+davies_bouldin_score: 2.411
+
+kpca,poly--91
+13 32 2 
+28 16 3 
+4 20 23 
+accuracy rate: 58.86524822695035
+adjusted rank index: 0.14557062642680454
+completeness: 0.18834993139759396
+v-measure: 0.1829354042044461
+homogeneity: 0.1778234826071703
+davies_bouldin_score: 5.9654
+
+kpca,poly--86
+6 8 33 
+1 23 23 
+0 0 47 
+accuracy rate: 53.90070921985816
+adjusted rank index: 0.1045275342292993
+completeness: 0.253309421068962
+v-measure: 0.1991383426877418
+homogeneity: 0.16405469091231684
+davies_bouldin_score: 4.6097
+
+kpca,cos--141
+1 13 33 
+3 31 13 
+33 4 10 
+accuracy rate: 68.79432624113475
+adjusted rank index: 0.28979956094923554
+completeness: 0.2997484277403257
+v-measure: 0.29782971663528035
+homogeneity: 0.29593541291062603
+davies_bouldin_score: 6.8083
+
+kpca,cos--136
+31 15 1 
+14 33 0 
+22 1 24 
+accuracy rate: 62.4113475177305
+adjusted rank index: 0.21501879568174762
+completeness: 0.3154191603642369
+v-measure: 0.3048825139411556
+homogeneity: 0.2950270697886475
+davies_bouldin_score: 6.7346
+
+kpca,cos--131
+25 13 9 
+9 30 8 
+44 2 1 
+accuracy rate: 58.86524822695035
+adjusted rank index: 0.21341810764622654
+completeness: 0.23534135046744817
+v-measure: 0.21885778121325897
+homogeneity: 0.20453212433452483
+davies_bouldin_score: 6.4683
+
+kpca,cos--126
+30 17 0 
+13 34 0 
+2 30 15 
+accuracy rate: 56.02836879432624
+adjusted rank index: 0.1381362331974022
+completeness: 0.26571506749005497
+v-measure: 0.24239093293822805
+homogeneity: 0.22283109920614183
+davies_bouldin_score: 6.262
+
+kpca,cos--121
+0 35 12 
+1 15 31 
+14 30 3 
+accuracy rate: 56.73758865248227
+adjusted rank index: 0.1471790678659035
+completeness: 0.23922576859120015
+v-measure: 0.21874709877718976
+homogeneity: 0.20149806893334357
+davies_bouldin_score: 6.3461
+
+kpca,cos--116
+16 30 1 
+33 12 2 
+12 13 22 
+accuracy rate: 60.28368794326241
+adjusted rank index: 0.1504605284125315
+completeness: 0.18762734939942938
+v-measure: 0.18216276704839418
+homogeneity: 0.1770074846251243
+davies_bouldin_score: 6.5399
+
+kpca,cos--111
+9 5 33 
+7 8 32 
+0 0 47 
+accuracy rate: 45.39007092198582
+adjusted rank index: 0.03401006966866689
+completeness: 0.153399888110637
+v-measure: 0.1140035920835875
+homogeneity: 0.09070790663234168
+davies_bouldin_score: 4.6834
+
+kpca,cos--106
+18 25 4 
+7 34 6 
+4 43 0 
+accuracy rate: 47.5177304964539
+adjusted rank index: 0.04816050550824716
+completeness: 0.11455484305009073
+v-measure: 0.09274301669025563
+homogeneity: 0.07790878641324997
+davies_bouldin_score: 5.4615
+
+kpca,cos--101
+13 30 4 
+3 38 6 
+1 46 0 
+accuracy rate: 46.09929078014184
+adjusted rank index: 0.03598505459426119
+completeness: 0.1512247886701274
+v-measure: 0.10850070723086262
+homogeneity: 0.08459959840081578
+davies_bouldin_score: 4.2727
+
+kpca,cos--96
+0 45 2 
+0 42 5 
+5 42 0 
+accuracy rate: 39.00709219858156
+adjusted rank index: 0.0033294356864789054
+completeness: 0.1842764985481955
+v-measure: 0.08882824392249512
+homogeneity: 0.05851808814376314
+davies_bouldin_score: 2.4109
+
+kpca,cos--91
+13 32 2 
+28 16 3 
+4 20 23 
+accuracy rate: 58.86524822695035
+adjusted rank index: 0.14557062642680454
+completeness: 0.18834993139759396
+v-measure: 0.1829354042044461
+homogeneity: 0.1778234826071703
+davies_bouldin_score: 5.9653
+
+kpca,cos--86
+6 8 33 
+1 23 23 
+0 0 47 
+accuracy rate: 53.90070921985816
+adjusted rank index: 0.1045275342292993
+completeness: 0.253309421068962
+v-measure: 0.1991383426877418
+homogeneity: 0.16405469091231684
+davies_bouldin_score: 4.6096
+
+kpca,sig--141
+1 13 33 
+3 31 13 
+34 4 9 
+accuracy rate: 69.50354609929079
+adjusted rank index: 0.30386765559665224
+completeness: 0.3097612042650713
+v-measure: 0.3081749282582296
+homogeneity: 0.3066048160023692
+davies_bouldin_score: 6.812
+
+kpca,sig--136
+31 15 1 
+14 33 0 
+22 1 24 
+accuracy rate: 62.4113475177305
+adjusted rank index: 0.21501879568174762
+completeness: 0.3154191603642369
+v-measure: 0.3048825139411556
+homogeneity: 0.2950270697886475
+davies_bouldin_score: 6.7345
+
+kpca,sig--131
+25 13 9 
+9 30 8 
+44 2 1 
+accuracy rate: 58.86524822695035
+adjusted rank index: 0.21341810764622654
+completeness: 0.23534135046744817
+v-measure: 0.21885778121325897
+homogeneity: 0.20453212433452483
+davies_bouldin_score: 6.4682
+
+kpca,sig--126
+30 17 0 
+13 34 0 
+2 30 15 
+accuracy rate: 56.02836879432624
+adjusted rank index: 0.1381362331974022
+completeness: 0.26571506749005497
+v-measure: 0.24239093293822805
+homogeneity: 0.22283109920614183
+davies_bouldin_score: 6.2619
+
+kpca,sig--121
+0 35 12 
+1 15 31 
+14 30 3 
+accuracy rate: 56.73758865248227
+adjusted rank index: 0.1471790678659035
+completeness: 0.23922576859120015
+v-measure: 0.21874709877718976
+homogeneity: 0.20149806893334357
+davies_bouldin_score: 6.346
+
+kpca,sig--116
+16 30 1 
+33 12 2 
+12 13 22 
+accuracy rate: 60.28368794326241
+adjusted rank index: 0.1504605284125315
+completeness: 0.18762734939942938
+v-measure: 0.18216276704839418
+homogeneity: 0.1770074846251243
+davies_bouldin_score: 6.5399
+
+kpca,sig--111
+9 5 33 
+7 8 32 
+0 0 47 
+accuracy rate: 45.39007092198582
+adjusted rank index: 0.03401006966866689
+completeness: 0.153399888110637
+v-measure: 0.1140035920835875
+homogeneity: 0.09070790663234168
+davies_bouldin_score: 4.6834
+
+kpca,sig--106
+18 25 4 
+7 34 6 
+4 43 0 
+accuracy rate: 47.5177304964539
+adjusted rank index: 0.04816050550824716
+completeness: 0.11455484305009073
+v-measure: 0.09274301669025563
+homogeneity: 0.07790878641324997
+davies_bouldin_score: 5.4615
+
+kpca,sig--101
+13 30 4 
+3 38 6 
+1 46 0 
+accuracy rate: 46.09929078014184
+adjusted rank index: 0.03598505459426119
+completeness: 0.1512247886701274
+v-measure: 0.10850070723086262
+homogeneity: 0.08459959840081578
+davies_bouldin_score: 4.2727
+
+kpca,sig--96
+0 45 2 
+0 42 5 
+5 42 0 
+accuracy rate: 39.00709219858156
+adjusted rank index: 0.0033294356864789054
+completeness: 0.1842764985481955
+v-measure: 0.08882824392249512
+homogeneity: 0.05851808814376314
+davies_bouldin_score: 2.4109
+
+kpca,sig--91
+13 32 2 
+28 16 3 
+4 20 23 
+accuracy rate: 58.86524822695035
+adjusted rank index: 0.14557062642680454
+completeness: 0.18834993139759396
+v-measure: 0.1829354042044461
+homogeneity: 0.1778234826071703
+davies_bouldin_score: 5.9653
+
+kpca,sig--86
+6 8 33 
+1 23 23 
+0 0 47 
+accuracy rate: 53.90070921985816
+adjusted rank index: 0.1045275342292993
+completeness: 0.253309421068962
+v-measure: 0.1991383426877418
+homogeneity: 0.16405469091231684
+davies_bouldin_score: 4.6096
+
