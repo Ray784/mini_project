@@ -12,8 +12,6 @@ import pandas as pd
 from pandas.plotting import scatter_matrix
 
 
-
-
 def write2d(file, header, arr, actuallabels, y, db):
 	file.write(header+"\n")
 	for i in arr:
@@ -53,6 +51,13 @@ def doClusters(num_clusters, reducer, X, opt_file, i):
 	if(reducer == 'pca'):
 		pca = PCA(n_components=i)
 		X = pca.fit_transform(X)
+		if(i == 141):
+			for j in range(i):
+				file = io.open(folder_name+"-out"+"\\pca\\pca-"+str(j)+".txt", 'w', encoding="utf-8")
+				file.write("num_words "+str(len(words))+"\n\n")
+				for val in range(len(pca.components_[j])):
+					file.write(words[val]+	" :"+str(pca.components_[j][val]) + "\n")
+			#print(pca.explained_variance_)
 	elif(reducer == 'kpca,lin'):
 		kpcal = KernelPCA(n_components=i,kernel='linear')
 		X = kpcal.fit_transform(X)
@@ -89,11 +94,11 @@ def doClusters(num_clusters, reducer, X, opt_file, i):
 
 
 
-folder_name = 'ds-t4-141-3'
+folder_name = 'ds-141-3'
 num_clusters = 3
-opt_file = io.open("output.txt", 'w')
-time_file = io.open("time_opt.txt", "w")
-table = io.open("table.txt", "w")
+opt_file = io.open(folder_name+"-out"+"\\output.txt", 'w')
+time_file = io.open(folder_name+"-out"+"\\time_opt.txt", "w")
+table = io.open(folder_name+"-out"+"\\table.txt", "w")
 #cluster_file = io.open("clusters.txt", "w")
 reducers = ['none', 'pca', 'kpca,lin', 'kpca,poly', 'kpca,cos', 'kpca,sig']
 actuallabels=[0]*47 + [1]*47 + [2]*47
@@ -110,10 +115,11 @@ for f in os.listdir(dir):
 		cnt+=1
 		files.append(os.path.join(dir,f))
 file_iter = iter(files)
-
-vectorizer = TfidfVectorizer(analyzer='word',input='filename',
+ 
+vectorizer = TfidfVectorizer(analyzer='word',input='filename', 
 	token_pattern='[^\n\,\.\s\!\'\?\"\:\;\`\~\)\(\-0123456789][^\n\?\,\.\s\!\'\"\;\:\`\~\)\(\-0123456789]+')
-X=vectorizer.fit_transform(file_iter,file_name)  
+X=vectorizer.fit_transform(file_iter,folder_name)  
+words = vectorizer.get_feature_names()
 X=X.toarray()
 
 for reducer in reducers:

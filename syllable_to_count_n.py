@@ -6,7 +6,7 @@ no_mid = 0
 no_sml = 0
 
 
-folder_name = "ds-t4-141-3"
+folder_name = "ds-141-3"
 syllable_count = 3
 
 dir=os.path.join(os.getcwd(),folder_name)
